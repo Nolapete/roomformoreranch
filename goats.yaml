@@ -1,0 +1,450 @@
+- model: goats.goat
+  pk: 1
+  fields:
+    name: Makaisto
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 2
+  fields:
+    name: Oreo
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 3
+  fields:
+    name: Renesmee Mystique
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 4
+  fields:
+    name: Taini
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 5
+  fields:
+    name: Shikoba
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 6
+  fields:
+    name: Shoshoni
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 7
+  fields:
+    name: Cinnamon
+    description: ''
+    breed: N
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 8
+  fields:
+    name: Fleur-de-lis
+    description: ''
+    breed: P
+    date_of_birth: null
+    birth_number: U
+    birth_weight: '0.00'
+    category: PD
+    price: '150.00'
+    image: goat.jpg
+    is_available: true
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 9
+  fields:
+    name: Ramona
+    description: ''
+    breed: N
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 10
+  fields:
+    name: Picture Perfect
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 11
+  fields:
+    name: Perfect Spring
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 12
+  fields:
+    name: Princess
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 13
+  fields:
+    name: Samurai L. Jackson
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BB
+    price: '450.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 14
+  fields:
+    name: Siqua
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 15
+  fields:
+    name: Hershey
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: BD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: true
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: Myotonic Goat Registry
+    registry_id: null
+- model: goats.goat
+  pk: 16
+  fields:
+    name: Pierre
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: YB
+    price: '475.00'
+    image: goat.jpg
+    is_available: true
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 17
+  fields:
+    name: Big Boy
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: YB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 18
+  fields:
+    name: White Spot
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: YB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 19
+  fields:
+    name: Taini's Boy
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: YB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 20
+  fields:
+    name: Siqua's Boy
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: YB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 21
+  fields:
+    name: Hershey's Girl
+    description: ''
+    breed: F
+    date_of_birth: null
+    birth_number: S
+    birth_weight: '0.00'
+    category: YD
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 22
+  fields:
+    name: Ramona's Boy
+    description: 50/50 Myotonic/Fainting x Nigerian
+    breed: M
+    date_of_birth: null
+    birth_number: T
+    birth_weight: '0.00'
+    category: MB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 23
+  fields:
+    name: Cinnamon's Boy
+    description: 50/50 Myotonic/Fainting x Nigerian
+    breed: M
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: MB
+    price: '0.00'
+    image: goat.jpg
+    is_available: false
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 24
+  fields:
+    name: Ramona's Girl
+    description: 50/50 Myotonic/Fainting x Nigerian
+    breed: M
+    date_of_birth: null
+    birth_number: T
+    birth_weight: '0.00'
+    category: PD
+    price: '150.00'
+    image: goat.jpg
+    is_available: true
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null
+- model: goats.goat
+  pk: 25
+  fields:
+    name: Cinnamon's Girl
+    description: 50/50 Myotonic/Fainting x Nigerian
+    breed: M
+    date_of_birth: null
+    birth_number: W
+    birth_weight: '0.00'
+    category: PD
+    price: '150.00'
+    image: goat.jpg
+    is_available: true
+    is_registered: false
+    is_disbudded_or_dehorned: true
+    is_polled: false
+    registry: null
+    registry_id: null

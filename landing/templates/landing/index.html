@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room for More Ranch - Myotonic Goats</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f5f0;
+      color: #3e3b32;
+    }
+    header, nav, footer {
+      background-color: #8d6e63;
+      color: white;
+      padding: 1em 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #fefae0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 960px;
+      margin: 20px auto;
+      padding: 0 20px;
+      background: #fffaf0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      color: #6d4c41;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gallery img {
+      width: calc(33.333% - 10px);
+      height: auto;
+    }
+    @media (max-width: 600px) {
+      .gallery img {
+        width: 100%;
+      }
+    }
+    footer {
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Room for More Ranch</h1>
+    <p>Myotonic (Fainting) Goats</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#care">Care</a>
+    <a href="#facts">Fun Facts</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Myotonic Goats</h2>
+      <p>Myotonic goats, also known as fainting goats, are a unique breed known for their muscle-stiffening trait caused by a genetic condition called myotonia congenita. Despite their name, they do not lose consciousness when they "faint." These goats originated in the United States in the 1880s, particularly in Tennessee.</p>
+    </section>
+
+    <section id="care">
+      <h2>Why Choose Myotonic Goats?</h2>
+      <ul>
+        <li>Low Maintenance: Ideal for beginners</li>
+        <li>Gentle Temperament: Calm and friendly</li>
+        <li>Excellent Meat Quality: High muscle-to-fat ratio</li>
+        <li>Unique and Harmless Trait</li>
+      </ul>
+
+      <h2>Care & Feeding</h2>
+      <p>These goats do well on pasture with fresh water, shelter, and supplemental feed. Like all goats, they need regular hoof trimming and vaccinations to stay healthy.</p>
+    </section>
+
+    <section id="facts">
+      <h2>Fun Facts</h2>
+      <ul>
+        <li>Fainting varies in frequency from goat to goat</li>
+        <li>They come in a variety of colors and sizes</li>
+        <li>Some people keep them solely as pets</li>
+      </ul>
+    </section>
+
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="https://placekitten.com/300/200" alt="Myotonic goat" />
+        <img src="https://placekitten.com/301/200" alt="Goat in pasture" />
+        <img src="https://placekitten.com/302/200" alt="Friendly goat" />
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to learn more about our goats?</p>
+      <p>Email: <a href="mailto:pete.logiudice@zohomail.com">pete.logiudice@zohomail.com</a></p>
+      
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Room for More Ranch. All rights reserved. Made with Django</p>
+  </footer>
+</body>
+</html>
+

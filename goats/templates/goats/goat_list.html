@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room for More Ranch - Goats</title>    
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f5f0;
+        color: #3e3b32;
+      }
+      header,
+      nav,
+      footer {
+        background-color: #8d6e63;
+        color: white;
+        padding: 1em 0;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 15px;
+        color: #fefae0;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .goat-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .goat-card {
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 8px;
+        max-width: 300px;
+      }
+      .goat-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+      .goat-card h3 {
+        margin-top: 0;
+      }
+      .goat-card p {
+        margin: 5px 0;
+      }
+      .container {
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 0 20px;
+        background: #fffaf0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #6d4c41;
+      }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .gallery img {
+        width: calc(33.333% - 10px);
+        height: auto;
+      }
+      @media (max-width: 600px) {
+        .gallery img {
+          width: 100%;
+        }
+      }
+      footer {
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    <h1>Room For More Ranch - Goats</h1>
+<section>
+    <div class="filter-form">
+      <form method="GET">
+        {{ filter.form.as_p }}
+        <button type="submit">Filter</button>
+      </form>
+    </div>
+</section>
+<hr>
+<section>
+    <div class="goat-container">
+      {% for goat in filter.qs %}
+        <div class="goat-card">
+          {% if goat.image %}
+            <img src="{{ goat.image.url }}" alt="{{ goat.name }}" class="goat-image" />
+          {% endif %}
+          <h3>{{ goat.name }}</h3>
+          <p>
+            <strong>{{ goat.get_breed_display }} {{ goat.get_category_display }}</strong>
+          </p>
+          <p>
+            {% if goat.date_of_birth %}
+              {{ goat.date_of_birth }}
+            {% endif %}
+          </p>
+          <p>
+            {% if goat.birth_number and goat.birth_number != 'U' %}
+              Birth Number: {{ goat.get_birth_number_display }}
+            {% endif %}
+
+            {% if goat.birth_weight and goat.birth_weight > 0 %}
+              Birth Weight: {{ goat.birth_weight }} kg
+            {% endif %}
+          </p>
+          <p>
+            {% if goat.is_registered %}
+              Registered with {{ goat.registry }}
+              {% if goat.registry_id %}
+                ID: {{ goat.registry_id }}
+              {% endif %}
+            {% else %}
+              Unregisterable or Not Registered
+            {% endif %}
+          </p>
+          <p>
+            {% if goat.is_disbudded_or_dehorned %}
+              Disbudded or Dehorned
+            {% elif goat.is_polled %}
+              Polled
+            {% else %}
+              Horned
+            {% endif %}
+          </p>
+          {% if goat.is_available %}
+            <p>
+              <strong>Price:</strong> ${{ goat.price }}
+            </p>
+          {% endif %}
+          <p>{{ goat.description|truncatechars:100 }}</p>
+          <!--  Add a "View Details" link here once a detail view is created 
+    
+             -->
+        </div>
+      {% empty %}
+        <p>No goats match your filter criteria.</p>
+      {% endfor %}
+    </div>
+</section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to learn more about our goats?</p>
+      <p>Email: <a href="mailto:pete.logiudice@zohomail.com">pete.logiudice@zohomail.com</a></p>
+      
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Room for More Ranch. All rights reserved. Made with Django</p>
+  </footer>
+</body>
+</html>
+  </body>
+</html>
