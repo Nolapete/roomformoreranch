@@ -7,18 +7,30 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0009_breed_category_rename_breed_goat_old_breed_and_more'),
+        ("goats", "0009_breed_category_rename_breed_goat_old_breed_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='goat',
-            name='breed',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='goats', to='goats.breed'),
+            model_name="goat",
+            name="breed",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="goats",
+                to="goats.breed",
+            ),
         ),
         migrations.AddField(
-            model_name='goat',
-            name='category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='goats', to='goats.category'),
+            model_name="goat",
+            name="category",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="goats",
+                to="goats.category",
+            ),
         ),
     ]

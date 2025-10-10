@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -24,7 +25,7 @@ admin.site.site_title = "roomformoreranch.com"
 admin.site.index_title = "Room For More Ranch Admin Portal"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('landing.urls')),
-    path('goats/', include('goats.urls')),
+    path("admin/", admin.site.urls),
+    path("", include("landing.urls")),
+    path("goats/", include("goats.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

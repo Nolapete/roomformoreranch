@@ -6,13 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0006_alter_goat_birth_number_alter_goat_breed_and_more'),
+        ("goats", "0006_alter_goat_birth_number_alter_goat_breed_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='goat',
-            name='breed',
-            field=models.CharField(blank=True, choices=[('F', 'Myotonic/Fainting'), ('M', 'Mixed'), ('N', 'Nigerian'), ('P', 'Pygmy'), ('U', 'Unknown')], default='Myotonic/Fainting', max_length=100, null=True),
+            model_name="goat",
+            name="breed",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("F", "Myotonic/Fainting"),
+                    ("M", "Mixed"),
+                    ("N", "Nigerian"),
+                    ("P", "Pygmy"),
+                    ("U", "Unknown"),
+                ],
+                default="Myotonic/Fainting",
+                max_length=100,
+                null=True,
+            ),
         ),
     ]

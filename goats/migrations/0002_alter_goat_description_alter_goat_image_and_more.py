@@ -6,33 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0001_initial'),
+        ("goats", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='goat',
-            name='description',
+            model_name="goat",
+            name="description",
             field=models.TextField(blank=True),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='image',
-            field=models.ImageField(default='goat.jpg', upload_to='goats/'),
+            model_name="goat",
+            name="image",
+            field=models.ImageField(default="goat.jpg", upload_to="goats/"),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='price',
+            model_name="goat",
+            name="price",
             field=models.DecimalField(decimal_places=2, default=0.0, max_digits=10),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='registry',
+            model_name="goat",
+            name="registry",
             field=models.CharField(max_length=100, null=True),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='registry_id',
+            model_name="goat",
+            name="registry_id",
             field=models.CharField(max_length=50, null=True),
         ),
     ]

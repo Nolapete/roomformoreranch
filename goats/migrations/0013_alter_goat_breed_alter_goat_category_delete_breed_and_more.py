@@ -6,24 +6,53 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0012_remove_goat_old_breed_remove_goat_old_category'),
+        ("goats", "0012_remove_goat_old_breed_remove_goat_old_category"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='goat',
-            name='breed',
-            field=models.CharField(blank=True, choices=[('F', 'Myotonic/Fainting'), ('M', 'Mixed'), ('N', 'Nigerian'), ('P', 'Pygmy'), ('U', 'Unknown')], default='F', max_length=100, null=True),
+            model_name="goat",
+            name="breed",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("F", "Myotonic/Fainting"),
+                    ("M", "Mixed"),
+                    ("N", "Nigerian"),
+                    ("P", "Pygmy"),
+                    ("U", "Unknown"),
+                ],
+                default="F",
+                max_length=100,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='category',
-            field=models.CharField(choices=[('BB', 'Breeding Buck'), ('BU', 'Buckling'), ('YB', 'Yearling Buck'), ('MB', 'Market Buck'), ('PB', 'Pet Quality Buck/Buckling'), ('MW', 'Market Wether'), ('PW', 'Pet Quality Wether'), ('BD', 'Breeding Doe'), ('DO', 'Doeling'), ('YD', 'Yearling Doe'), ('MD', 'Market Doe'), ('PD', 'Pet Quality Doe/Doeling')], default='BD', max_length=50),
+            model_name="goat",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("BB", "Breeding Buck"),
+                    ("BU", "Buckling"),
+                    ("YB", "Yearling Buck"),
+                    ("MB", "Market Buck"),
+                    ("PB", "Pet Quality Buck/Buckling"),
+                    ("MW", "Market Wether"),
+                    ("PW", "Pet Quality Wether"),
+                    ("BD", "Breeding Doe"),
+                    ("DO", "Doeling"),
+                    ("YD", "Yearling Doe"),
+                    ("MD", "Market Doe"),
+                    ("PD", "Pet Quality Doe/Doeling"),
+                ],
+                default="BD",
+                max_length=50,
+            ),
         ),
         migrations.DeleteModel(
-            name='Breed',
+            name="Breed",
         ),
         migrations.DeleteModel(
-            name='Category',
+            name="Category",
         ),
     ]

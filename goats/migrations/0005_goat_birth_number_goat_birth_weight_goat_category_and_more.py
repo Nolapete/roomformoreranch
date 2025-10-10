@@ -6,38 +6,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0004_goat_breed'),
+        ("goats", "0004_goat_breed"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='goat',
-            name='birth_number',
+            model_name="goat",
+            name="birth_number",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='goat',
-            name='birth_weight',
+            model_name="goat",
+            name="birth_weight",
             field=models.DecimalField(decimal_places=2, default=0.0, max_digits=5),
         ),
         migrations.AddField(
-            model_name='goat',
-            name='category',
+            model_name="goat",
+            name="category",
             field=models.CharField(blank=True, max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='goat',
-            name='date_of_birth',
+            model_name="goat",
+            name="date_of_birth",
             field=models.DateField(blank=True, null=True),
         ),
         migrations.AddField(
-            model_name='goat',
-            name='is_disbudded_or_dehorned',
+            model_name="goat",
+            name="is_disbudded_or_dehorned",
             field=models.BooleanField(default=True),
         ),
         migrations.AddField(
-            model_name='goat',
-            name='is_polled',
+            model_name="goat",
+            name="is_polled",
             field=models.BooleanField(default=False),
         ),
     ]

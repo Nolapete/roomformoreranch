@@ -6,32 +6,48 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0008_alter_goat_breed'),
+        ("goats", "0008_alter_goat_breed"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Breed',
+            name="Breed",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
             ],
         ),
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
             ],
         ),
         migrations.RenameField(
-            model_name='goat',
-            old_name='breed',
-            new_name='old_breed',
+            model_name="goat",
+            old_name="breed",
+            new_name="old_breed",
         ),
         migrations.RenameField(
-            model_name='goat',
-            old_name='category',
-            new_name='old_category',
+            model_name="goat",
+            old_name="category",
+            new_name="old_category",
         ),
     ]

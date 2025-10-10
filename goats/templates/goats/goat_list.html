@@ -1,167 +1,143 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Room for More Ranch - Goats</title>    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if filter_title %}{{ filter_title }}{% else %}Room For More Ranch - Goats{% endif %}</title>
+
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f5f0;
-        color: #3e3b32;
-      }
-      header,
-      nav,
-      footer {
-        background-color: #8d6e63;
-        color: white;
-        padding: 1em 0;
-        text-align: center;
-      }
-      nav a {
-        margin: 0 15px;
-        color: #fefae0;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .goat-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-      .goat-card {
-        border: 1px solid #ccc;
-        padding: 15px;
-        border-radius: 8px;
-        max-width: 300px;
-      }
-      .goat-image {
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
-      }
-      .goat-card h3 {
-        margin-top: 0;
-      }
-      .goat-card p {
-        margin: 5px 0;
-      }
-      .container {
-        max-width: 960px;
-        margin: 20px auto;
-        padding: 0 20px;
-        background: #fffaf0;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      }
-      h1,
-      h2 {
-        color: #6d4c41;
-      }
-      .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .gallery img {
-        width: calc(33.333% - 10px);
-        height: auto;
-      }
-      @media (max-width: 600px) {
-        .gallery img {
-          width: 100%;
+        .header-bg {
+            background-color: #8d6e63;
         }
-      }
-      footer {
-        font-size: 0.9em;
-      }
+        .text-custom-light {
+            color: #fefae0 !important;
+        }
+        .text-custom-dark {
+            color: #6d4c41 !important;
+        }
+        .goat-image-thumb {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-body p {
+            margin-bottom: 0.5rem;
+        }
+        .navbar-filter-form .form-control,
+        .navbar-filter-form .form-select {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+        }
+        .navbar-filter-form .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .navbar-filter-form .form-label {
+            color: #fefae0; /* Match custom-light color */
+            margin-bottom: 0;
+            padding-right: .5rem; /* Add padding to the right of the label */
+        }
+        .btn-outline-custom {
+            color: #fff;
+            border-color: #fff;
+        }
+        .btn-outline-custom:hover {
+            color: #8d6e63;
+            background-color: #fefae0;
+            border-color: #fefae0;
+        }
     </style>
-  </head>
-  <body>
-    <div>
-    <h1>Room For More Ranch - Goats</h1>
-<section>
-    <div class="filter-form">
-      <form method="GET">
-        {{ filter.form.as_p }}
-        <button type="submit">Filter</button>
-      </form>
-    </div>
-</section>
-<hr>
-<section>
-    <div class="goat-container">
-      {% for goat in filter.qs %}
-        <div class="goat-card">
-          {% if goat.image %}
-            <img src="{{ goat.image.url }}" alt="{{ goat.name }}" class="goat-image" />
-          {% endif %}
-          <h3>{{ goat.name }}</h3>
-          <p>
-            <strong>{{ goat.get_breed_display }} {{ goat.get_category_display }}</strong>
-          </p>
-          <p>
-            {% if goat.date_of_birth %}
-              {{ goat.date_of_birth }}
-            {% endif %}
-          </p>
-          <p>
-            {% if goat.birth_number and goat.birth_number != 'U' %}
-              Birth Number: {{ goat.get_birth_number_display }}
-            {% endif %}
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark header-bg shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <strong>Room for More Ranch - Goats</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <form method="GET" class="d-flex navbar-filter-form ms-auto" role="search">
+                        <div class="d-flex align-items-center">
+                            <label for="{{ filter.form.name.id_for_label }}" class="form-label text-custom-light">Name</label>
+                            {{ filter.form.name }}
+                            <label for="{{ filter.form.is_available.id_for_label }}" class="form-label ms-2 text-custom-light">Availability</label>
+                            {{ filter.form.is_available }}
+                            <button type="submit" class="btn btn-outline-custom ms-2">Filter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-            {% if goat.birth_weight and goat.birth_weight > 0 %}
-              Birth Weight: {{ goat.birth_weight }} kg
-            {% endif %}
-          </p>
-          <p>
-            {% if goat.is_registered %}
-              Registered with {{ goat.registry }}
-              {% if goat.registry_id %}
-                ID: {{ goat.registry_id }}
-              {% endif %}
-            {% else %}
-              Unregisterable or Not Registered
-            {% endif %}
-          </p>
-          <p>
-            {% if goat.is_disbudded_or_dehorned %}
-              Disbudded or Dehorned
-            {% elif goat.is_polled %}
-              Polled
-            {% else %}
-              Horned
-            {% endif %}
-          </p>
-          {% if goat.is_available %}
-            <p>
-              <strong>Price:</strong> ${{ goat.price }}
-            </p>
-          {% endif %}
-          <p>{{ goat.description|truncatechars:100 }}</p>
-          <!--  Add a "View Details" link here once a detail view is created 
-    
-             -->
+    <main class="container my-5">
+        <h1 class="text-center mb-4">Goats{% if filter_title %} - {{ filter_title }}{% endif %}</h1>
+        <hr>
+        <section>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for goat in filter.qs %}
+                <div class="col">
+                    <div class="card h-100">
+                        {% if goat.image %}
+                            <img src="{{ goat.image.url }}" alt="{{ goat.name }}" class="card-img-top goat-image-thumb" />
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title text-custom-dark">{{ goat.name }}</h5>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    <strong>{{ goat.get_breed_display }} {{ goat.get_category_display }}</strong>
+                                </small>
+                            </p>
+                            {% if goat.date_of_birth %}
+                                <p class="card-text"><small><strong>Date of Birth:</strong> {{ goat.date_of_birth }}</small></p>
+                            {% endif %}
+                            {% if goat.birth_number and goat.birth_number != 'U' %}
+                                <p class="card-text"><small><strong>Birth Number:</strong> {{ goat.get_birth_number_display }}</small></p>
+                            {% endif %}
+                            <p class="card-text"><small>
+                                <strong>Registration:</strong>
+                                {% if goat.is_registered %}
+                                    Registered with {{ goat.registry }} {% if goat.registry_id %} ID: {{ goat.registry_id }} {% endif %}
+                                {% else %}
+                                    Unregistered
+                                {% endif %}
+                            </small></p>
+                            {% if goat.is_available %}
+                                <p class="card-text"><small>
+                                    <strong>Price:</strong> ${{ goat.price }}
+                                </small></p>
+                            {% endif %}
+                            <p class="card-text"><small>{{ goat.description|truncatechars:100 }}</small></p>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center">No goats match your filter criteria.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-custom-light header-bg py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Room for More Ranch. All rights reserved. Made with Django</p>
         </div>
-      {% empty %}
-        <p>No goats match your filter criteria.</p>
-      {% endfor %}
-    </div>
-</section>
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Have questions or want to learn more about our goats?</p>
-      <p>Email: <a href="mailto:pete.logiudice@zohomail.com">pete.logiudice@zohomail.com</a></p>
-      
-    </section>
-  </div>
+    </footer>
 
-  <footer>
-    <p>&copy; 2025 Room for More Ranch. All rights reserved. Made with Django</p>
-  </footer>
+    <!-- Bootstrap 5 JS bundle via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-</html>
-  </body>
 </html>

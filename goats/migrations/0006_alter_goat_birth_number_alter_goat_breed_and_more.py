@@ -6,23 +6,62 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('goats', '0005_goat_birth_number_goat_birth_weight_goat_category_and_more'),
+        ("goats", "0005_goat_birth_number_goat_birth_weight_goat_category_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='goat',
-            name='birth_number',
-            field=models.CharField(choices=[('S', 'Single'), ('W', 'Twin'), ('T', 'Triplet'), ('Q', 'Quad'), ('U', 'Unknown')], default='S', max_length=50),
+            model_name="goat",
+            name="birth_number",
+            field=models.CharField(
+                choices=[
+                    ("S", "Single"),
+                    ("W", "Twin"),
+                    ("T", "Triplet"),
+                    ("Q", "Quad"),
+                    ("U", "Unknown"),
+                ],
+                default="S",
+                max_length=50,
+            ),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='breed',
-            field=models.CharField(blank=True, choices=[('F', 'Myotonic/Fainting'), ('M', 'Mixed'), ('N', 'Nigerian'), ('P', 'Pygmy'), ('U', 'Unknown')], default='F', max_length=100, null=True),
+            model_name="goat",
+            name="breed",
+            field=models.CharField(
+                blank=True,
+                choices=[
+                    ("F", "Myotonic/Fainting"),
+                    ("M", "Mixed"),
+                    ("N", "Nigerian"),
+                    ("P", "Pygmy"),
+                    ("U", "Unknown"),
+                ],
+                default="F",
+                max_length=100,
+                null=True,
+            ),
         ),
         migrations.AlterField(
-            model_name='goat',
-            name='category',
-            field=models.CharField(choices=[('BB', 'Breeding Buck'), ('BU', 'Buckling'), ('YB', 'Yearling Buck'), ('MB', 'Market Buck'), ('PB', 'Pet Quality Buck/Buckling'), ('MW', 'Market Wether'), ('PW', 'Pet Quality Wether'), ('BD', 'Breeding Doe'), ('DO', 'Doeling'), ('YD', 'Yearling Doe'), ('MD', 'Market Doe'), ('PD', 'Pet Quality Doe/Doeling')], default='BD', max_length=50),
+            model_name="goat",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("BB", "Breeding Buck"),
+                    ("BU", "Buckling"),
+                    ("YB", "Yearling Buck"),
+                    ("MB", "Market Buck"),
+                    ("PB", "Pet Quality Buck/Buckling"),
+                    ("MW", "Market Wether"),
+                    ("PW", "Pet Quality Wether"),
+                    ("BD", "Breeding Doe"),
+                    ("DO", "Doeling"),
+                    ("YD", "Yearling Doe"),
+                    ("MD", "Market Doe"),
+                    ("PD", "Pet Quality Doe/Doeling"),
+                ],
+                default="BD",
+                max_length=50,
+            ),
         ),
     ]

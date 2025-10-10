@@ -1,0 +1,91 @@
+
+      /* CSS from previous response remains the same */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f5f0;
+        color: #3e3b32;
+      }
+      header,
+      nav,
+      footer {
+        background-color: #8d6e63;
+        color: white;
+        padding: 1em 0;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 15px;
+        color: #fefae0;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .accordion {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 600px;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .accordion-item {
+        border-bottom: 1px solid #ccc;
+      }
+      .accordion-item:last-child {
+        border-bottom: none;
+      }
+      .accordion-header {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        cursor: pointer;
+        background-color: #e8dccb;
+        transition: background-color 0.3s;
+      }
+      .accordion-header:hover {
+        background-color: #d1bfa8;
+      }
+      .accordion-header.active {
+        background-color: #c9b7a4;
+      }
+      .goat-image-thumb {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-right: 15px;
+      }
+      .accordion-header h3 {
+        margin: 0;
+        font-size: 1.2em;
+        color: #6d4c41;
+      }
+      .accordion-content {
+        display: none;
+        padding: 15px;
+        background-color: #f4f0e9;
+      }
+      .accordion-content.visible {
+        display: block;
+      }
+      .container {
+        max-width: 960px;
+        margin: 20px auto;
+        padding: 0 20px;
+        background: #fffaf0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+      h1,
+      h2 {
+        color: #6d4c41;
+      }
+      footer {
+        font-size: 0.9em;
+      }
+.debug-border {
+  border: 2px solid red !important;
+}
