@@ -1,5 +1,5 @@
 """
-Django settings for roomformoreranch project.
+Django settings for config project.
 """
 
 from pathlib import Path
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "roomformoreranch.urls"
+ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "roomformoreranch.wsgi.application"
+WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Database
