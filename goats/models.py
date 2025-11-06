@@ -1,5 +1,6 @@
+from datetime import date
+
 from django.db import models
-from datetime import date, timedelta
 
 
 class Goat(models.Model):
@@ -32,10 +33,8 @@ class Goat(models.Model):
         "PD": "Pet Quality Doe/Doeling",
     }
     name = models.CharField(max_length=200)
-    description = models.TextField(null=True, blank=True)
-    breed = models.CharField(
-        max_length=100, null=True, blank=True, choices=BREED, default="F"
-    )
+    description = models.TextField(blank=True)
+    breed = models.CharField(max_length=100, blank=True, choices=BREED, default="F")
     date_of_birth = models.DateField(null=True, blank=True)
     birth_number = models.CharField(max_length=50, choices=BIRTH_NUMBER, default="S")
     birth_weight = models.DecimalField(max_digits=5, decimal_places=2, default=0.00)
@@ -46,8 +45,8 @@ class Goat(models.Model):
     is_registered = models.BooleanField(default=False)
     is_disbudded_or_dehorned = models.BooleanField(default=True)
     is_polled = models.BooleanField(default=False)
-    registry = models.CharField(max_length=100, null=True, blank=True)
-    registry_id = models.CharField(max_length=50, null=True, blank=True)
+    registry = models.CharField(max_length=100, blank=True)
+    registry_id = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
         return self.name

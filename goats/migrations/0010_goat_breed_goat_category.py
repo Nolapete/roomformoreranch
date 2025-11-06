@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("goats", "0009_breed_category_rename_breed_goat_old_breed_and_more"),
     ]

@@ -1,0 +1,48 @@
+[project]
+name = "roomformoreranch"
+description = "Room for More Ranch website"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "asgiref==3.10.0",
+    "black==25.9.0",
+    "click==8.3.0",
+    "django==5.2.7",
+    "django-environ==0.12.0",
+    "django-filter==25.2",
+    "djangorestframework==3.16.1",
+    "mypy-extensions==1.1.0",
+    "packaging==25.0",
+    "pathspec==0.12.1",
+    "pillow==11.3.0",
+    "platformdirs==4.5.0",
+    "psycopg2-binary==2.9.10",
+    "pytokens==0.1.10",
+    "pyyaml==6.0.3",
+    "sqlparse==0.5.3",
+]
+[tool.ruff]
+exclude = ["**/migrations/*.py"]
+line-length = 88
+[tool.ruff.lint]
+# Enable Flake8's F, E, W rules by default, plus some extras
+select = ["E", "W", "F", "I", "UP", "B", "C4", "DJ", "S"]
+# E: pycodestyle errors
+# W: pycodestyle warnings
+# F: Pyflakes
+# I: isort (import sorting)
+# UP: pyupgrade (modernizing syntax)
+# B: flake8-bugbear (common issues)
+# C4: flake8-comprehensions
+# DJ: Django-specific rules
+# S: bandit (security issues)
+
+
+# Ignore some specific rules if needed, e.g., missing docstrings
+ignore = ["D100", "D101", "D102", "D103", "D104"]
+
+[tool.ruff.format]
+# Enable Ruff's highly performant formatter as a drop-in Black replacement
+# It is recommended to use ruff format instead of black now
+quote-style = "double"
+indent-style = "space"

@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("goats", "0005_goat_birth_number_goat_birth_weight_goat_category_and_more"),
     ]

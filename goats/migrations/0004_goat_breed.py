@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("goats", "0003_alter_goat_description_alter_goat_registry_and_more"),
     ]

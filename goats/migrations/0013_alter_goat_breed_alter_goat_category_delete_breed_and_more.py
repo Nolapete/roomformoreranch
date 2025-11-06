@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("goats", "0012_remove_goat_old_breed_remove_goat_old_category"),
     ]

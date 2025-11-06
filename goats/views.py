@@ -1,6 +1,7 @@
 from django_filters.views import FilterView
-from .models import Goat
+
 from .filters import GoatFilter
+from .models import Goat
 
 
 class GoatListView(FilterView):
@@ -17,7 +18,8 @@ class GoatListView(FilterView):
         is_available_value_raw = self.request.GET.get("is_available")
 
         if is_available_value_raw is not None:
-            # Check if the raw value is an empty string, which indicates the 'All Goats' option
+            # Check if the raw value is an empty string,
+            # which indicates the 'All Goats' option
             if is_available_value_raw == "":
                 # The title should remain "Goats" when 'All Goats' is selected
                 pass
