@@ -19,6 +19,7 @@ jobs:
           host: 45.56.126.187
           username: pete
           key: ${{ secrets.LINODE_SSH_PRIVATE_KEY }}
+          passphrase: ${{ secrets.LINODE_SSH_PASSPHRASE }}
           script: |
             cd /var/www
             # Run the script using sudo, which no longer asks for a password
