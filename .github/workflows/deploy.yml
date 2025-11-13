@@ -22,4 +22,4 @@ jobs:
           script: |
             cd /var/www
             # Run the script using sudo, which no longer asks for a password
-            sudo ./project_manager.sh roomformoreranch deploy
+            ./project_manager.sh roomformoreranch deploy
