@@ -1,21 +1,22 @@
 {% load static i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE in 'ar,he,fa' %}rtl{% else %}ltr{% endif %}">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}Room for More Ranch{% endblock %}</title>
-
-    {% comment %} Load the correct Bootstrap CSS file based on language direction {% endcomment %}
-    {% if LANGUAGE_CODE in 'ar,he,fa' %}
-    <link href="{% static 'myapp/css/bootstrap.rtl.min.css' %}" rel="stylesheet">
-    {% else %}
-    <link href="{% static 'myapp/css/bootstrap.min.css' %}" rel="stylesheet">
-    {% endif %}
-
-    <style>
+<html lang="{{ LANGUAGE_CODE }}"
+      dir="{% if LANGUAGE_CODE in 'ar,he,fa' %}rtl{% else %}ltr{% endif %}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            {% block title %}Room for More Ranch{% endblock %}
+        </title>
+        {% comment %} Load the correct Bootstrap CSS file based on language direction {% endcomment %}
+        {% if LANGUAGE_CODE in 'ar,he,fa' %}
+            <link href="{% static 'myapp/css/bootstrap.rtl.min.css' %}"
+                  rel="stylesheet">
+        {% else %}
+            <link href="{% static 'myapp/css/bootstrap.min.css' %}" rel="stylesheet">
+        {% endif %}
+        <style>
         /* This can be in your myapp/css/styles.css file */
         .album {
             padding-top: 3rem;
@@ -45,45 +46,50 @@
             padding: 1rem 1.25rem;
             text-align: left;
         }
-    </style>
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark header-bg shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <strong>{% block header_text %}Room for More Ranch - Goats{% endblock %}</strong>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-custom-light" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-custom-light" href="/goats">Goats</a>
-                        </li>
-                    </ul>
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark header-bg shadow-sm">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <strong>
+                            {% block header_text %}Room for More Ranch - Goats{% endblock %}
+                        </strong>
+                    </a>
+                    <button class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav"
+                            aria-controls="navbarNav"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link text-custom-light" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-custom-light" href="/goats">Goats</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </nav>
+        </header>
+        <main class="flex-shrink-0">
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="text-custom-light header-bg py-4 mt-auto">
+            <div class="container text-center">
+                <p class="mb-1">&copy; 2025 Room for More Ranch. All rights reserved. Made with Django</p>
             </div>
-        </nav>
-    </header>
-
-    <main class="flex-shrink-0">
-        {% block content %}{% endblock %}
-    </main>
-
-    <footer class="text-custom-light header-bg py-4 mt-auto">
-        <div class="container text-center">
-            <p class="mb-1">&copy; 2025 Room for More Ranch. All rights reserved. Made with Django</p>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 JS bundle (required for interactive components) -->
-    <script src="{% static 'myapp/js/bootstrap.bundle.min.js' %}"></script>
-    {% comment %} Custom scripts (if any) {% endcomment %}
-    {% block scripts %}{% endblock %}
-</body>
+        </footer>
+        <!-- Bootstrap 5 JS bundle (required for interactive components) -->
+        <script src="{% static 'myapp/js/bootstrap.bundle.min.js' %}"></script>
+        {% comment %} Custom scripts (if any) {% endcomment %}
+        {% block scripts %}{% endblock %}
+    </body>
 </html>
