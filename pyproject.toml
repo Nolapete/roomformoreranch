@@ -26,6 +26,14 @@ dependencies = [
     "ruff>=0.14.4",
     "sqlparse==0.5.3",
     "django-debug-toolbar>=6.1.0",
+    "django-oscar>=4.1",
+    "django-waffle>=5.0.0",
+    "whoosh>=2.7.4",
+    "django-allauth>=65.13.1",
+    "django-crm>=0.9.0",
+    "django-htmx>=1.26.0",
+    "sorl-thumbnail>=12.11.0",
+    "django-celery-results>=2.6.0",
 ]
 [tool.ruff]
 # Consistent Ruff settings: exclude migrations and set a consistent line length

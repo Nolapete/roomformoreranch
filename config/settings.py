@@ -1,10 +1,8 @@
-"""
-Django settings for config project.
-"""
-
+import os
 from pathlib import Path
 
 import environ
+from oscar.defaults import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,16 +27,64 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 # Application definition
 INSTALLED_APPS = [
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.flatpages",
+    "django.contrib.sites",
+    # Third party apps
+    "rest_framework",
+    "ninja",
+    "django_htmx",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "waffle",
+    "oscar.config.Shop",
+    "oscar.apps.analytics.apps.AnalyticsConfig",
+    "oscar.apps.checkout.apps.CheckoutConfig",
+    "oscar.apps.address.apps.AddressConfig",
+    "oscar.apps.shipping.apps.ShippingConfig",
+    "oscar.apps.catalogue.apps.CatalogueConfig",
+    "oscar.apps.catalogue.reviews.apps.CatalogueReviewsConfig",
+    "oscar.apps.communication.apps.CommunicationConfig",
+    "oscar.apps.partner.apps.PartnerConfig",
+    "oscar.apps.basket.apps.BasketConfig",
+    "oscar.apps.payment.apps.PaymentConfig",
+    "oscar.apps.offer.apps.OfferConfig",
+    "oscar.apps.order.apps.OrderConfig",
+    "oscar.apps.customer.apps.CustomerConfig",
+    "oscar.apps.search.apps.SearchConfig",
+    "oscar.apps.voucher.apps.VoucherConfig",
+    "oscar.apps.wishlists.apps.WishlistsConfig",
+    "oscar.apps.dashboard.apps.DashboardConfig",
+    "oscar.apps.dashboard.reports.apps.ReportsDashboardConfig",
+    "oscar.apps.dashboard.users.apps.UsersDashboardConfig",
+    "oscar.apps.dashboard.orders.apps.OrdersDashboardConfig",
+    "oscar.apps.dashboard.catalogue.apps.CatalogueDashboardConfig",
+    "oscar.apps.dashboard.offers.apps.OffersDashboardConfig",
+    "oscar.apps.dashboard.partners.apps.PartnersDashboardConfig",
+    "oscar.apps.dashboard.pages.apps.PagesDashboardConfig",
+    "oscar.apps.dashboard.ranges.apps.RangesDashboardConfig",
+    "oscar.apps.dashboard.reviews.apps.ReviewsDashboardConfig",
+    "oscar.apps.dashboard.vouchers.apps.VouchersDashboardConfig",
+    "oscar.apps.dashboard.communications.apps.CommunicationsDashboardConfig",
+    "oscar.apps.dashboard.shipping.apps.ShippingDashboardConfig",
+    "crm",
+    "django_celery_results",
+    "widget_tweaks",
+    "haystack",
+    "treebeard",
+    "sorl.thumbnail",
+    "django_tables2",
     "django_filters",
+    # Apps
     "landing",
     "goats",
-    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -47,8 +93,11 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
+    "oscar.apps.basket.middleware.BasketMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
 ]
 
 if DEBUG:
@@ -136,10 +185,60 @@ LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-# Production-only security settings
-SECURE_SSL_REDIRECT = env("SECURE_SSL_REDIRECT", default=not DEBUG, cast=bool)
-SESSION_COOKIE_SECURE = env("SESSION_COOKIE_SECURE", default=not DEBUG, cast=bool)
-CSRF_COOKIE_SECURE = env("CSRF_COOKIE_SECURE", default=not DEBUG, cast=bool)
+ACCOUNT_LOGIN_METHODS = {"username", "email"}
+ACCOUNT_SIGNUP_FIELDS = ["email*", "username*", "password1*", "password2*"]
+ACCOUNT_EMAIL_VERIFICATION = "optional"
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# Allow unauthenticated access to these paths; everything else requires login
+LOGIN_REQUIRED_EXEMPT_URLS = [
+    r"^accounts/.*",  # allauth: login, signup, password reset,
+    # email confirm, social callbacks
+    r"^admin/login/$",  # allow admin login
+    r"^static/.*",  # static assets
+    r"^media/.*",  # media files (if served by Django)
+    r"^api/.*",  # let DRF permission classes handle API auth
+]
+
+# DRF: default to authenticated; public endpoints can override with AllowAny
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+}
+
+# Django Oscar Settings (Minimum Requirements)
+OSCAR_SHOP_NAME = "Room For More Ranch"
+OSCAR_FROM_EMAIL = "support@roomformoreranch.com"
+OSCAR_DEFAULT_CURRENCY = "USD"
+SITE_ID = 1  # Required by Allauth and Oscar
+
+# Optional: Set the user model if Oscar doesn't find it automatically
+OSCAR_USER_MODEL = "auth.User"
+
+WHOOSH_INDEX_PATH = os.path.join(BASE_DIR, "whoosh_index")
+
+HAYSTACK_CONNECTIONS = {
+    "default": {
+        "ENGINE": "haystack.backends.whoosh_backend.WhooshEngine",
+        "PATH": WHOOSH_INDEX_PATH,
+    },
+}
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+]
+
+# Conditional settings based on DEBUG
+if not DEBUG:
+    # === Security Settings for Production ===
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = "DENY"
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
